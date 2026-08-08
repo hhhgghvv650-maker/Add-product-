@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bazvor Add Product</title>
+
+<link rel="stylesheet" href="add-product.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- ================= FORM ================= -->
+
+<div class="product-form">
+
+<div class="header">
+
+<div class="brand-logo">B</div>
+
+<div>
+<h2>Bazvor</h2>
+<p>Create new product</p>
+</div>
+
+</div>
+
+
+<!-- PRODUCT MEDIA -->
+
+<div class="box">
+
+<h3>Product Media</h3>
+
+<label class="upload-area">
+
+<input
+type="file"
+id="mediaInput"
+accept="image/*,video/*"
+multiple
+>
+
+<div>
+<span>＋</span>
+<p>Add Photos / Video</p>
+<small>First selected photo will be MAIN photo</small>
+<small>Maximum 10 files</small>
+</div>
+
+</label>
+
+<div id="mediaPreview" class="media-preview"></div>
+
+</div>
+
+
+<!-- PRODUCT INFORMATION -->
+
+<div class="box">
+
+<h3>Product Information</h3>
+
+<input
+type="text"
+id="productName"
+placeholder="Product Name"
+>
+
+<input
+type="text"
+id="brandName"
+placeholder="Brand Name"
+>
+
+<input
+type="text"
+id="sku"
+placeholder="SKU"
+>
+
+<select id="category">
+
+<option value="">Select Category</option>
+<option>Electronics</option>
+<option>Fashion</option>
+<option>Beauty</option>
+<option>Home & Living</option>
+<option>Agriculture</option>
+<option>Sports</option>
+<option>Automotive</option>
+<option>Others</option>
+
+</select>
+
+
+<select id="origin">
+
+<option value="🇧🇩 Bangladesh">🇧🇩 Bangladesh</option>
+<option value="🇨🇳 China">🇨🇳 China</option>
+<option value="🇮🇳 India">🇮🇳 India</option>
+<option value="🇯🇵 Japan">🇯🇵 Japan</option>
+<option value="🇺🇸 USA">🇺🇸 USA</option>
+
+</select>
+
+
+<select id="condition">
+
+<option value="">Product Condition</option>
+<option>New</option>
+<option>Used</option>
+<option>Refurbished</option>
+
+</select>
+
+
+<input
+type="text"
+id="shortDescription"
+placeholder="Short Description"
+>
+
+<textarea
+id="description"
+placeholder="Product Description"
+></textarea>
+
+</div>
+
+
+<!-- PRICE -->
+
+<div class="box">
+
+<h3>Price Information</h3>
+
+<input
+type="number"
+id="oldPrice"
+placeholder="Regular Price"
+>
+
+<input
+type="number"
+id="salePrice"
+placeholder="Discount Price"
+>
+
+<input
+type="number"
+id="wholesalePrice"
+placeholder="Wholesale Price"
+>
+
+<div class="discount">
+
+Discount:
+<span id="discountText">0%</span>
+
+</div>
+
+</div>
+
+
+<!-- STOCK -->
+
+<div class="box">
+
+<h3>Stock Management</h3>
+
+<input
+type="number"
+id="stock"
+placeholder="Stock Quantity"
+>
+
+<input
+type="number"
+id="minOrder"
+placeholder="Minimum Order"
+>
+
+</div>
+
+
+<!-- VARIANT -->
+
+<div class="box">
+
+<h3>Product Variant</h3>
+
+<input
+type="text"
+id="color"
+placeholder="Color"
+>
+
+<input
+type="text"
+id="size"
+placeholder="Size"
+>
+
+</div>
+
+
+<!-- PRODUCT TYPE -->
+
+<div class="box">
+
+<h3>Product Type</h3>
+
+<div class="switch-row">
+
+<div>
+<strong>Regular Product</strong>
+<p>Sell normally</p>
+</div>
+
+<label class="switch">
+
+<input
+type="radio"
+name="type"
+value="regular"
+checked
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<div class="switch-row">
+
+<div>
+<strong>Flash Sell</strong>
+<p>Show in Flash Sale</p>
+</div>
+
+<label class="switch">
+
+<input
+type="radio"
+name="type"
+value="flash"
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<div id="flashBox" class="hidden flash-box">
+
+<input
+type="number"
+id="flashStock"
+placeholder="Flash Sell Stock"
+>
+
+<input
+type="datetime-local"
+id="flashStart"
+>
+
+<input
+type="datetime-local"
+id="flashEnd"
+>
+
+</div>
+
+</div>
+
+
+<!-- SHIPPING -->
+
+<div class="box">
+
+<h3>Shipping Information</h3>
+
+<input
+type="text"
+id="weight"
+placeholder="Product Weight"
+>
+
+<input
+type="text"
+id="deliveryTime"
+placeholder="Delivery Time"
+>
+
+<input
+type="number"
+id="deliveryCharge"
+placeholder="Delivery Charge"
+>
+
+
+<div class="delivery-row">
+
+<div>
+
+<strong>Free Delivery</strong>
+
+<p>Customer gets free delivery</p>
+
+</div>
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="freeDelivery"
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+</div>
+
+
+<!-- POLICY -->
+
+<div class="box">
+
+<h3>Policy</h3>
+
+<input
+type="text"
+id="returnPolicy"
+placeholder="Return Policy"
+>
+
+<input
+type="text"
+id="warranty"
+placeholder="Warranty"
+>
+
+</div>
+
+
+<!-- ACTION BUTTONS -->
+
+<div class="action-buttons">
+
+<button
+id="saveDraft"
+class="draft-btn"
+type="button"
+>
+Save Draft
+</button>
+
+<button
+id="publishBtn"
+class="publish-btn"
+type="button"
+>
+Publish Product
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= PREVIEW ================= -->
+
+<div class="preview-area">
+
+<h3>Live Preview</h3>
+
+
+<div class="product-card">
+
+<div class="image-box">
+
+<img
+id="previewImage"
+src=""
+alt="Product"
+>
+
+</div>
+
+
+<div class="card-body">
+
+
+<!-- Brand intentionally hidden -->
+
+<div class="seller-info hidden">
+
+<span id="previewBrand"></span>
+
+<span
+id="verifiedBadge"
+class="verified"
+>
+✔ Bazvor Verified
+</span>
+
+</div>
+
+
+<h4 id="previewName">
+Product Name
+</h4>
+
+
+<span id="previewCountry">
+🇧🇩 Bangladesh
+</span>
+
+
+<div class="price">
+
+৳ <span id="previewPrice">0</span>
+
+<span class="old">
+
+৳ <span id="previewOld">0</span>
+
+</span>
+
+</div>
+
+
+<span
+id="discountTextCard"
+class="hidden"
+>
+</span>
+
+
+<div id="deliveryBadge"></div>
+
+
+<div
+id="ratingBox"
+class="rating"
+>
+No Reviews Yet
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module" src="add-product.js"></script>
+
+</body>
+</html>
